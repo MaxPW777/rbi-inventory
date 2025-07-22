@@ -40,11 +40,10 @@
           name = "rails-dev-shell";
           buildInputs = [ruby pkgs.bundler pkgs.postgresql] ++ nativeDeps;
           # Start Redis and Postgres in the background when entering shell
+          # inside your flake.nix → devShells.default.mkShell { …
           shellHook = ''
             export GEM_HOME=$PWD/.gems
-            export GEM_PATH=$GEM_HOME
             export PATH=$GEM_HOME/bin:$PATH
-
             export PGUSER=${postgresUser}
             export PGPASSWORD=${postgresPassword}
             export PGDATABASE=${postgresDb}
@@ -52,25 +51,32 @@
             export PGPORT=${toString postgresPort}
             export DATABASE_URL="postgres://${postgresUser}:${postgresPassword}@localhost:${toString postgresPort}/${postgresDb}"
 
-            # Setup and start Postgres
+            # Initialize DB directory if needed
             if [ ! -d "${postgresDataDir}" ]; then
-              echo "Initializing Postgres database in ${postgresDataDir}..."
-              initdb -D ${postgresDataDir}
-              echo "host all all 0.0.0.0/0 md5" >> ${postgresDataDir}/pg_hba.conf
-              echo "listen_addresses='*'" >> ${postgresDataDir}/postgresql.conf
+              echo "Initializing Postgres DB…"
+              initdb -D "${postgresDataDir}"
+              echo "host all all 0.0.0.0/0 md5" >> "${postgresDataDir}/pg_hba.conf"
+              echo "listen_addresses='*'" >> "${postgresDataDir}/postgresql.conf"
             fi
-            echo "Starting Postgres..."
-            pg_ctl -D ${postgresDataDir} -o "-p ${toString postgresPort}" -w start
-            createdb -h localhost -p ${toString postgresPort} -U ${postgresUser} ${postgresDb} 2>/dev/null || true
-            psql -h localhost -p ${toString postgresPort} -U ${postgresUser} -c "ALTER USER ${postgresUser} WITH PASSWORD '${postgresPassword}';" 2>/dev/null || true
 
-            # Start Redis
-            echo "Starting Redis server..."
-            (redis-server --daemonize yes)
+            # Only start Postgres if it's not already running
+            if pg_ctl -D "${postgresDataDir}" status > /dev/null 2>&1; then
+              echo "Postgres is already running."
+            else
+              echo "Starting Postgres…"
+              pg_ctl -D "${postgresDataDir}" -o "-p ${toString postgresPort}" -w start
+            fi
+
+            # Only start Redis if not already running
+            if pgrep redis-server > /dev/null 2>&1; then
+              echo "Redis is already running."
+            else
+              echo "Starting Redis…"
+              redis-server --daemonize yes
+            fi
 
             echo "Ruby: $(ruby --version)"
             echo "Bundler: $(bundler --version)"
-            echo "Postgres, Redis started for dev env."
           '';
           # Clean up processes when you exit
           postShellHook = ''
