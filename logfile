@@ -14,3 +14,32 @@
 2025-07-22 15:33:48.838 GMT [83185] LOG:  checkpoint complete: wrote 46 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.345 s, sync=0.002 s, total=4.350 s; sync files=11, longest=0.001 s, average=0.001 s; distance=266 kB, estimate=266 kB
 2025-07-22 15:35:04.511 GMT [86391] FATAL:  database "hello_dev" does not exist
 2025-07-22 15:35:04.763 GMT [86392] FATAL:  database "hello_dev" does not exist
+2025-07-22 16:13:30.648 GMT [89524] ERROR:  database "rbi_inventory" already exists
+2025-07-22 16:13:30.648 GMT [89524] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 16:13:44.739 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 16:15:19.878 GMT [83185] LOG:  checkpoint complete: wrote 942 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=95.122 s, sync=0.013 s, total=95.139 s; sync files=302, longest=0.001 s, average=0.001 s; distance=4312 kB, estimate=4312 kB
+2025-07-22 16:18:44.875 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 16:18:49.351 GMT [83185] LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.468 s, sync=0.005 s, total=4.476 s; sync files=41, longest=0.001 s, average=0.001 s; distance=180 kB, estimate=3899 kB
+2025-07-22 16:58:44.520 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 16:58:49.714 GMT [83185] LOG:  checkpoint complete: wrote 52 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.184 s, sync=0.006 s, total=5.194 s; sync files=41, longest=0.001 s, average=0.001 s; distance=160 kB, estimate=3525 kB
+2025-07-22 17:03:13.655 GMT [93222] ERROR:  database "rbi_inventory" already exists
+2025-07-22 17:03:13.655 GMT [93222] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 17:03:44.717 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 17:03:44.822 GMT [83185] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.001 s, total=0.105 s; sync files=2, longest=0.001 s, average=0.001 s; distance=2 kB, estimate=3173 kB
+2025-07-22 17:29:14.885 GMT [95591] ERROR:  database "rbi_inventory" already exists
+2025-07-22 17:29:14.885 GMT [95591] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 17:31:19.916 GMT [95751] ERROR:  database "rbi_inventory" already exists
+2025-07-22 17:31:19.916 GMT [95751] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 17:31:39.612 GMT [95807] ERROR:  database "rbi_inventory" already exists
+2025-07-22 17:31:39.612 GMT [95807] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 17:33:44.869 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 17:33:44.976 GMT [83185] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.103 s, sync=0.001 s, total=0.107 s; sync files=2, longest=0.001 s, average=0.001 s; distance=3 kB, estimate=2856 kB
+2025-07-22 17:33:53.376 GMT [96230] ERROR:  database "rbi_inventory" already exists
+2025-07-22 17:33:53.376 GMT [96230] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 17:37:56.297 GMT [83184] LOG:  received fast shutdown request
+2025-07-22 17:37:56.298 GMT [83184] LOG:  aborting any active transactions
+2025-07-22 17:37:56.302 GMT [83184] LOG:  background worker "logical replication launcher" (PID 83190) exited with exit code 1
+2025-07-22 17:37:56.302 GMT [83185] LOG:  shutting down
+2025-07-22 17:37:56.303 GMT [83185] LOG:  checkpoint starting: shutdown immediate
+2025-07-22 17:37:56.304 GMT [83185] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=2, longest=0.001 s, average=0.001 s; distance=3 kB, estimate=2571 kB
+2025-07-22 17:37:56.308 GMT [83184] LOG:  database system is shut down

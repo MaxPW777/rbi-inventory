@@ -1,1 +1,0 @@
-/nix/store/9cn58pjrsq6z6j40s1643yksz6a8z57h-postgresql-15.10/bin/postgres "-D" ".nix-pgdata"
