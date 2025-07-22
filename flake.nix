@@ -2,7 +2,7 @@
   description = "Full Rails DevShell (Nix Flake) with Ruby, PostgreSQL, Redis, native deps";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -14,7 +14,7 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = import nixpkgs {inherit system;};
-        ruby = pkgs.ruby;
+        ruby = pkgs.ruby_3_4;
         nativeDeps = [
           pkgs.openssl
           pkgs.libyaml
@@ -29,6 +29,10 @@
           pkgs.nodejs_20
           pkgs.yarn
         ];
+        rubyDeps = with pkgs.rubyPackages_3_4; [
+          ruby-lsp
+          prism
+        ];
         # Postgres service (for local dev DB)
         postgresPort = 5432;
         postgresUser = "postgres";
@@ -38,7 +42,7 @@
       in {
         devShells.default = pkgs.mkShell {
           name = "rails-dev-shell";
-          buildInputs = [ruby pkgs.bundler pkgs.postgresql] ++ nativeDeps;
+          buildInputs = [ruby pkgs.postgresql] ++ nativeDeps ++ rubyDeps;
           # Start Redis and Postgres in the background when entering shell
           # inside your flake.nix → devShells.default.mkShell { …
           shellHook = ''
