@@ -1,0 +1,45 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/ext/prism
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+checking for prism.h in /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/include... yes
+checking for prism/extension.h in /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/ext... yes
+checking for whether -fvisibility=hidden is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20250722-85461-q2gyda sitelibdir\=./.gem.20250722-85461-q2gyda clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20250722-85461-q2gyda sitelibdir\=./.gem.20250722-85461-q2gyda
+compiling api_node.c
+compiling api_pack.c
+compiling extension.c
+compiling ./../../src/diagnostic.c
+compiling ./../../src/encoding.c
+compiling ./../../src/node.c
+compiling ./../../src/options.c
+compiling ./../../src/pack.c
+compiling ./../../src/prettyprint.c
+compiling ./../../src/prism.c
+compiling ./../../src/regexp.c
+compiling ./../../src/serialize.c
+compiling ./../../src/static_literals.c
+compiling ./../../src/token_type.c
+compiling ./../../src/util/pm_buffer.c
+compiling ./../../src/util/pm_char.c
+compiling ./../../src/util/pm_constant_pool.c
+compiling ./../../src/util/pm_integer.c
+compiling ./../../src/util/pm_list.c
+compiling ./../../src/util/pm_memchr.c
+compiling ./../../src/util/pm_newline_list.c
+compiling ./../../src/util/pm_string.c
+compiling ./../../src/util/pm_strncasecmp.c
+compiling ./../../src/util/pm_strpbrk.c
+linking shared-object prism/prism.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20250722-85461-q2gyda sitelibdir\=./.gem.20250722-85461-q2gyda install
+install -c -p -m 755 prism.bundle ./.gem.20250722-85461-q2gyda/prism
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/prism-1.4.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20250722-85461-q2gyda sitelibdir\=./.gem.20250722-85461-q2gyda clean

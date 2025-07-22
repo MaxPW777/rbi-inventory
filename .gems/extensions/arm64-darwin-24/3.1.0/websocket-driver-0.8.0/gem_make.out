@@ -1,0 +1,19 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/websocket-driver-0.8.0/ext/websocket-driver
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xow8mr sitelibdir\=./.gem.20250722-83211-xow8mr clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xow8mr sitelibdir\=./.gem.20250722-83211-xow8mr
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xow8mr sitelibdir\=./.gem.20250722-83211-xow8mr install
+install -c -p -m 755 websocket_mask.bundle ./.gem.20250722-83211-xow8mr
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/websocket-driver-0.8.0/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xow8mr sitelibdir\=./.gem.20250722-83211-xow8mr clean

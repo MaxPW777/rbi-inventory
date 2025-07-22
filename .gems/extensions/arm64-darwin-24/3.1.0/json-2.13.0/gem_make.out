@@ -1,0 +1,26 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/json-2.13.0/ext/json/ext/parser
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+checking for rb_enc_interned_str() in ruby/encoding.h... yes
+checking for rb_hash_new_capa() in ruby.h... no
+checking for rb_hash_bulk_insert() in ruby.h... yes
+checking for strnlen() in string.h... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+checking for arm_neon.h... yes
+checking for cpuid.h... no
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/json-2.13.0/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xh069l sitelibdir\=./.gem.20250722-83211-xh069l clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/json-2.13.0/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xh069l sitelibdir\=./.gem.20250722-83211-xh069l
+compiling parser.c
+linking shared-object json/ext/parser.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/json-2.13.0/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xh069l sitelibdir\=./.gem.20250722-83211-xh069l install
+install -c -p -m 755 parser.bundle ./.gem.20250722-83211-xh069l/json/ext
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/json-2.13.0/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xh069l sitelibdir\=./.gem.20250722-83211-xh069l clean

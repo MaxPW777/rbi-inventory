@@ -1,0 +1,25 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/date-3.4.1/ext/date
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+checking for rb_category_warn()... yes
+checking for timezone in time.h with  -Werror... yes
+checking for altzone in time.h with  -Werror... no
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-m6inm4 sitelibdir\=./.gem.20250722-83211-m6inm4 clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-m6inm4 sitelibdir\=./.gem.20250722-83211-m6inm4
+compiling date_core.c
+compiling date_parse.c
+compiling date_strftime.c
+compiling date_strptime.c
+linking shared-object date_core.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-m6inm4 sitelibdir\=./.gem.20250722-83211-m6inm4 install
+install -c -p -m 755 date_core.bundle ./.gem.20250722-83211-m6inm4
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-m6inm4 sitelibdir\=./.gem.20250722-83211-m6inm4 clean

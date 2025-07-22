@@ -1,0 +1,19 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/racc-1.8.1/ext/racc/cparse
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-asavx9 sitelibdir\=./.gem.20250722-83211-asavx9 clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-asavx9 sitelibdir\=./.gem.20250722-83211-asavx9
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-asavx9 sitelibdir\=./.gem.20250722-83211-asavx9 install
+install -c -p -m 755 cparse.bundle ./.gem.20250722-83211-asavx9/racc
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-asavx9 sitelibdir\=./.gem.20250722-83211-asavx9 clean

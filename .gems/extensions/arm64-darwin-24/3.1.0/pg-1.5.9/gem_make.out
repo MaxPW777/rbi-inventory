@@ -1,0 +1,65 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/pg-1.5.9/ext
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+Calling libpq with GVL unlocked
+checking for pg_config... yes
+Using config values from /nix/store/9cn58pjrsq6z6j40s1643yksz6a8z57h-postgresql-15.10/bin/pg_config
+checking for whether -Wl,-rpath,/nix/store/xr7v730p12zn2z06a5k1pqp4zcix957y-postgresql-15.10-lib/lib is accepted as LDFLAGS... yes
+Using libpq from /nix/store/xr7v730p12zn2z06a5k1pqp4zcix957y-postgresql-15.10-lib/lib
+checking for libpq-fe.h... yes
+checking for libpq/libpq-fs.h... yes
+checking for pg_config_manual.h... yes
+checking for PQconnectdb() in -lpq... yes
+checking for PQconninfo() in libpq-fe.h... yes
+checking for PQsslAttribute() in libpq-fe.h... yes
+checking for PQresultVerboseErrorMessage() in libpq-fe.h... yes
+checking for PQencryptPasswordConn() in libpq-fe.h... yes
+checking for PQresultMemorySize() in libpq-fe.h... yes
+checking for PQenterPipelineMode() in libpq-fe.h... yes
+checking for timegm()... yes
+checking for rb_gc_adjust_memory_usage()... yes
+checking for rb_gc_mark_movable()... yes
+checking for rb_io_wait()... yes
+checking for rb_io_descriptor()... yes
+checking for unistd.h... yes
+checking for inttypes.h... yes
+checking for C99 variable length arrays... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/pg-1.5.9/ext
+make DESTDIR\= sitearchdir\=./.gem.20250722-85967-n8liz1 sitelibdir\=./.gem.20250722-85967-n8liz1 clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/pg-1.5.9/ext
+make DESTDIR\= sitearchdir\=./.gem.20250722-85967-n8liz1 sitelibdir\=./.gem.20250722-85967-n8liz1
+compiling gvl_wrappers.c
+compiling pg.c
+compiling pg_binary_decoder.c
+compiling pg_binary_encoder.c
+compiling pg_coder.c
+compiling pg_connection.c
+compiling pg_copy_coder.c
+compiling pg_errors.c
+compiling pg_record_coder.c
+compiling pg_result.c
+compiling pg_text_decoder.c
+compiling pg_text_encoder.c
+compiling pg_tuple.c
+compiling pg_type_map.c
+compiling pg_type_map_all_strings.c
+compiling pg_type_map_by_class.c
+compiling pg_type_map_by_column.c
+compiling pg_type_map_by_mri_type.c
+compiling pg_type_map_by_oid.c
+compiling pg_type_map_in_ruby.c
+compiling pg_util.c
+linking shared-object pg_ext.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/pg-1.5.9/ext
+make DESTDIR\= sitearchdir\=./.gem.20250722-85967-n8liz1 sitelibdir\=./.gem.20250722-85967-n8liz1 install
+install -c -p -m 755 pg_ext.bundle ./.gem.20250722-85967-n8liz1
+installing pg_ext libraries
+install -c -p -m 644 postgresql_lib_path.rb .gem.20250722-85967-n8liz1/pg/
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/pg-1.5.9/ext
+make DESTDIR\= sitearchdir\=./.gem.20250722-85967-n8liz1 sitelibdir\=./.gem.20250722-85967-n8liz1 clean

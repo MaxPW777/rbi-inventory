@@ -1,0 +1,109 @@
+have_func: checking for fdatasync() in unistd.h... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib "clang -o conftest -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/arm64-darwin24 -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/ruby/backward -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib -L. -fstack-protector-strong -L/nix/store/8vaabmp60xqyc0qsmakp0jak87yv6xab-libffi-3.4.6-dev/lib -L/nix/store/kn4yni36n8fb9nch269n5fjbsj2nwr8a-ncurses-6.4-dev/lib -L/nix/store/qpcp03pklapa266n5dqx1s33sxqi3jq1-readline-8.2p10-dev/lib -L/nix/store/72hn9pm0swlxldcwi23w9vb55asmniq6-zlib-1.3.1-dev/lib -L/nix/store/v1b8769fcfih9b5ah54q2qbkqy9ia22r-openssl-3.0.14-dev/lib -L/nix/store/xmqa7p92x60wjd8zc7mra06jqkr0zkyg-gdbm-1.23/lib -L/nix/store/9am1xx4bm8xrmrl9wfwxa50l14sjcq41-libyaml-0.2.5-dev/lib -L/nix/store/z17njjix0mwdk1pkmj2zmvdksx7d4kp7-libobjc-11.0.0/lib -L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib -L/nix/store/2x9abkmnann7irj2k4s8ix4qh9ap5v42-libSystem-11.0.0/lib     -lruby-3.1.6   "
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib "clang -o conftest -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/arm64-darwin24 -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/ruby/backward -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib -L. -fstack-protector-strong -L/nix/store/8vaabmp60xqyc0qsmakp0jak87yv6xab-libffi-3.4.6-dev/lib -L/nix/store/kn4yni36n8fb9nch269n5fjbsj2nwr8a-ncurses-6.4-dev/lib -L/nix/store/qpcp03pklapa266n5dqx1s33sxqi3jq1-readline-8.2p10-dev/lib -L/nix/store/72hn9pm0swlxldcwi23w9vb55asmniq6-zlib-1.3.1-dev/lib -L/nix/store/v1b8769fcfih9b5ah54q2qbkqy9ia22r-openssl-3.0.14-dev/lib -L/nix/store/xmqa7p92x60wjd8zc7mra06jqkr0zkyg-gdbm-1.23/lib -L/nix/store/9am1xx4bm8xrmrl9wfwxa50l14sjcq41-libyaml-0.2.5-dev/lib -L/nix/store/z17njjix0mwdk1pkmj2zmvdksx7d4kp7-libobjc-11.0.0/lib -L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib -L/nix/store/2x9abkmnann7irj2k4s8ix4qh9ap5v42-libSystem-11.0.0/lib     -lruby-3.1.6   "
+conftest.c:16:57: error: use of undeclared identifier 'fdatasync'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))fdatasync; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <unistd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))fdatasync; return !p; }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib "clang -o conftest -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/arm64-darwin24 -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/ruby/backward -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib -L. -fstack-protector-strong -L/nix/store/8vaabmp60xqyc0qsmakp0jak87yv6xab-libffi-3.4.6-dev/lib -L/nix/store/kn4yni36n8fb9nch269n5fjbsj2nwr8a-ncurses-6.4-dev/lib -L/nix/store/qpcp03pklapa266n5dqx1s33sxqi3jq1-readline-8.2p10-dev/lib -L/nix/store/72hn9pm0swlxldcwi23w9vb55asmniq6-zlib-1.3.1-dev/lib -L/nix/store/v1b8769fcfih9b5ah54q2qbkqy9ia22r-openssl-3.0.14-dev/lib -L/nix/store/xmqa7p92x60wjd8zc7mra06jqkr0zkyg-gdbm-1.23/lib -L/nix/store/9am1xx4bm8xrmrl9wfwxa50l14sjcq41-libyaml-0.2.5-dev/lib -L/nix/store/z17njjix0mwdk1pkmj2zmvdksx7d4kp7-libobjc-11.0.0/lib -L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib -L/nix/store/2x9abkmnann7irj2k4s8ix4qh9ap5v42-libSystem-11.0.0/lib     -lruby-3.1.6   "
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <unistd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void fdatasync();
+17: int t(void) { fdatasync(); return 0; }
+/* end */
+
+--------------------
+
+block in append_cppflags: checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib "clang -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/arm64-darwin24 -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/ruby/backward -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe  -D_GNU_SOURCE -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_cflags: checking for whether -O3 is accepted as CFLAGS... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib "clang -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/arm64-darwin24 -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/ruby/backward -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -D_GNU_SOURCE -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe  -O3 -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_cflags: checking for whether -std=c99 is accepted as CFLAGS... -------------------- yes
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/lib "clang -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/arm64-darwin24 -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0/ruby/backward -I/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/include/ruby-3.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -D_GNU_SOURCE -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe -O3  -std=c99 -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+

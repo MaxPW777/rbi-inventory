@@ -1,0 +1,40 @@
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/msgpack-1.8.0/ext/msgpack
+/nix/store/hsdgsnzhdisa06gnra6q4q3dymcrkdw7-ruby-3.1.6/bin/ruby extconf.rb
+checking for rb_enc_interned_str() in ruby.h... yes
+checking for rb_hash_new_capa() in ruby.h... no
+checking for rb_proc_call_with_block() in ruby.h... yes
+checking for rb_gc_mark_locations() in ruby.h... yes
+checking for whether -fvisibility=hidden is accepted as CFLAGS... yes
+checking for whether -I.. is accepted as CFLAGS... yes
+checking for whether -Wall is accepted as CFLAGS... yes
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+checking for whether -DHASH_ASET_DEDUPE=1 is accepted as CFLAGS... yes
+checking for whether -DSTR_UMINUS_DEDUPE_FROZEN=1 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/msgpack-1.8.0/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xluzw3 sitelibdir\=./.gem.20250722-83211-xluzw3 clean
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/msgpack-1.8.0/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xluzw3 sitelibdir\=./.gem.20250722-83211-xluzw3
+compiling buffer.c
+compiling buffer_class.c
+compiling extension_value_class.c
+compiling factory_class.c
+compiling packer.c
+compiling packer_class.c
+compiling packer_ext_registry.c
+compiling rbinit.c
+compiling rmem.c
+compiling unpacker.c
+compiling unpacker_class.c
+compiling unpacker_ext_registry.c
+linking shared-object msgpack/msgpack.bundle
+ld: warning: directory not found for option '-L/nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-clang-wrapper-16.0.6/resource-root/lib'
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/msgpack-1.8.0/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xluzw3 sitelibdir\=./.gem.20250722-83211-xluzw3 install
+install -c -p -m 755 msgpack.bundle ./.gem.20250722-83211-xluzw3/msgpack
+
+current directory: /Users/max-vev/Local/rbi-inventory/.gems/gems/msgpack-1.8.0/ext/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20250722-83211-xluzw3 sitelibdir\=./.gem.20250722-83211-xluzw3 clean

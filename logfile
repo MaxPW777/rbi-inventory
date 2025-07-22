@@ -1,0 +1,16 @@
+2025-07-22 15:28:44.487 GMT [83184] LOG:  starting PostgreSQL 15.10 on aarch64-apple-darwin24.1.0, compiled by clang version 16.0.6, 64-bit
+2025-07-22 15:28:44.489 GMT [83184] LOG:  listening on IPv6 address "::1", port 5432
+2025-07-22 15:28:44.489 GMT [83184] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-07-22 15:28:44.489 GMT [83184] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2025-07-22 15:28:44.491 GMT [83187] LOG:  database system was shut down at 2025-07-22 15:27:57 GMT
+2025-07-22 15:28:44.492 GMT [83184] LOG:  database system is ready to accept connections
+2025-07-22 15:28:51.843 GMT [83192] FATAL:  database "hello_dev" does not exist
+2025-07-22 15:29:13.096 GMT [83195] FATAL:  role "max‑vev" does not exist
+2025-07-22 15:29:40.381 GMT [83199] ERROR:  role "postgres" already exists
+2025-07-22 15:29:40.381 GMT [83199] STATEMENT:  CREATE USER postgres SUPERUSER LOGIN;
+2025-07-22 15:29:59.224 GMT [83199] ERROR:  syntax error at or near "-" at character 16
+2025-07-22 15:29:59.224 GMT [83199] STATEMENT:  CREATE USER max-vev SUPERUSER LOGIN;
+2025-07-22 15:33:44.488 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 15:33:48.838 GMT [83185] LOG:  checkpoint complete: wrote 46 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.345 s, sync=0.002 s, total=4.350 s; sync files=11, longest=0.001 s, average=0.001 s; distance=266 kB, estimate=266 kB
+2025-07-22 15:35:04.511 GMT [86391] FATAL:  database "hello_dev" does not exist
+2025-07-22 15:35:04.763 GMT [86392] FATAL:  database "hello_dev" does not exist
