@@ -14,3 +14,9 @@
 2025-07-22 15:33:48.838 GMT [83185] LOG:  checkpoint complete: wrote 46 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.345 s, sync=0.002 s, total=4.350 s; sync files=11, longest=0.001 s, average=0.001 s; distance=266 kB, estimate=266 kB
 2025-07-22 15:35:04.511 GMT [86391] FATAL:  database "hello_dev" does not exist
 2025-07-22 15:35:04.763 GMT [86392] FATAL:  database "hello_dev" does not exist
+2025-07-22 16:13:30.648 GMT [89524] ERROR:  database "rbi_inventory" already exists
+2025-07-22 16:13:30.648 GMT [89524] STATEMENT:  CREATE DATABASE rbi_inventory;
+2025-07-22 16:13:44.739 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 16:15:19.878 GMT [83185] LOG:  checkpoint complete: wrote 942 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=95.122 s, sync=0.013 s, total=95.139 s; sync files=302, longest=0.001 s, average=0.001 s; distance=4312 kB, estimate=4312 kB
+2025-07-22 16:18:44.875 GMT [83185] LOG:  checkpoint starting: time
+2025-07-22 16:18:49.351 GMT [83185] LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.468 s, sync=0.005 s, total=4.476 s; sync files=41, longest=0.001 s, average=0.001 s; distance=180 kB, estimate=3899 kB
