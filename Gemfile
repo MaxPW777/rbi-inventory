@@ -52,7 +52,6 @@ end
 
 group :development do
   gem "web-console"
-  gem "bootsnap", require: false
   gem "listen"             # auto-reload files
   gem "bullet"             # N+1 query detection
   gem "rubocop", require: false

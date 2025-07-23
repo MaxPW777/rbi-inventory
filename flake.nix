@@ -42,7 +42,7 @@
       in {
         devShells.default = pkgs.mkShell {
           name = "rails-dev-shell";
-          buildInputs = [ruby pkgs.postgresql] ++ nativeDeps ++ rubyDeps;
+          buildInputs = [ruby pkgs.postgresql_15] ++ nativeDeps ++ rubyDeps;
           # Start Redis and Postgres in the background when entering shell
           # inside your flake.nix → devShells.default.mkShell { …
           shellHook = ''
