@@ -1,4 +1,4 @@
 class AuditLog < ApplicationRecord
-  belongs_to :user, optional: true
-  belongs_to :product, optional: true
+  belongs_to :user
+  belongs_to :item
 end
