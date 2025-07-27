@@ -10,16 +10,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_22_165404) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_26_154213) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
+  enable_extension "pgcrypto"
 
-  create_table "products", force: :cascade do |t|
+  create_table "audit_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "action"
+    t.uuid "item_id"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.index ["item_id"], name: "index_audit_logs_on_item_id"
+    t.index ["user_id"], name: "index_audit_logs_on_user_id"
+  end
+
+  create_table "folders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "brand"
-    t.integer "quantity"
-    t.decimal "price"
+    t.boolean "is_brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.integer "quantity"
+    t.float "volume_ml"
+    t.float "weight"
+    t.decimal "price"
+    t.decimal "selling_price"
+    t.integer "min_level"
+    t.text "notes"
+    t.datetime "expiry_date"
+    t.uuid "folder_id", null: false
+    t.uuid "supplier_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_items_on_folder_id"
+    t.index ["supplier_id"], name: "index_items_on_supplier_id"
+  end
+
+  create_table "photos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "item_id", null: false
+    t.string "url"
+    t.string "caption"
+    t.uuid "uploaded_by", null: false
+    t.datetime "created_at", null: false
+    t.index ["item_id"], name: "index_photos_on_item_id"
+    t.index ["uploaded_by"], name: "index_photos_on_uploaded_by"
+  end
+
+  create_table "suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "contact_email"
+    t.string "phone"
+    t.string "address"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "usages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "item_id", null: false
+    t.integer "change_amount"
+    t.datetime "created_at", null: false
+    t.index ["item_id"], name: "index_usages_on_item_id"
+  end
+
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "audit_logs", "items"
+  add_foreign_key "audit_logs", "users"
+  add_foreign_key "items", "folders"
+  add_foreign_key "items", "suppliers"
+  add_foreign_key "photos", "items"
+  add_foreign_key "photos", "users", column: "uploaded_by"
+  add_foreign_key "usages", "items"
 end

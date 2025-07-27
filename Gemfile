@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.2", ">= 7.2.2.1"
+gem "rails", "~> 8.0.2", ">= 8.0.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
@@ -19,8 +19,8 @@ gem "jbuilder"
 # postgres
 gem "pg"
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
-
+gem "redis", ">= 4.0.1"
+gem "dotenv-rails", groups: [ :development, :test ]
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -46,11 +46,15 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "listen"             # auto-reload files
+  gem "bullet"             # N+1 query detection
+  gem "rubocop", require: false
 end
 
 group :test do
