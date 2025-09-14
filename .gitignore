@@ -1,0 +1,9 @@
+# editor stuff
+.idea
+.vscode
+
+.jj
+.git
+
+flake.lock
+.dockerignore
