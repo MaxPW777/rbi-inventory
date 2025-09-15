@@ -15,15 +15,13 @@
       devShells.default = pkgs.mkShell {
         # toolchain
         buildInputs = [
-          pkgs.elixir_1_17
-          pkgs.erlang_26
+          pkgs.elixir_1_18
+          pkgs.erlang_27
           pkgs.nodejs_20
           pkgs.pnpm
-          pkgs.postgresql_16
           pkgs.redis
           pkgs.just # better than make for scripts
           pkgs.openssl
-          pkgs.git
         ];
         shellHook = ''
           export MIX_ENV=dev
