@@ -20,7 +20,7 @@ config :api, ApiWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Api.PubSub,
-  live_view: [signing_salt: "x7OnBB7J"]
+  live_view: [signing_salt: "iUYFFtKx"]
 
 # Configures the mailer
 #
