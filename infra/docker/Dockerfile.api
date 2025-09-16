@@ -1,0 +1,46 @@
+# ----- Build Phoenix deps & assets -----
+FROM hexpm/elixir:1.17.2-erlang-26.2.5-debian-bookworm-20240612 AS build
+ARG PHOENIX_DIR=apps/api
+ARG WEB_DIR=apps/web
+WORKDIR /build
+
+# System deps
+RUN apt-get update && apt-get install -y build-essential git npm curl ca-certificates && rm -rf /var/lib/apt/lists/*
+RUN mix do local.hex --force, local.rebar --force
+
+# Elixir deps
+COPY ${PHOENIX_DIR}/mix.exs ${PHOENIX_DIR}/mix.lock ${PHOENIX_DIR}/.tool-versions ${PHOENIX_DIR}/
+COPY ${PHOENIX_DIR}/config ${PHOENIX_DIR}/config
+WORKDIR /build/${PHOENIX_DIR}
+RUN MIX_ENV=prod mix deps.get --only prod
+
+# Build React (Vite) -> copy into Phoenix priv/static
+WORKDIR /build
+COPY ${WEB_DIR} ${WEB_DIR}
+WORKDIR /build/${WEB_DIR}
+RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
+RUN pnpm install && pnpm build
+
+# Phoenix app source + assets
+WORKDIR /build/${PHOENIX_DIR}
+COPY ${PHOENIX_DIR} .
+# copy web build into Phoenix priv/static
+RUN mkdir -p priv/static && cp -r /build/${WEB_DIR}/dist/* priv/static/
+
+# Compile & release
+RUN MIX_ENV=prod mix assets.digest
+RUN MIX_ENV=prod mix compile
+RUN MIX_ENV=prod mix release
+
+# ----- Runtime image -----
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y openssl bash ca-certificates && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+ENV HOME=/app USER=app MIX_ENV=prod SHELL=/bin/bash
+# copy release
+COPY --from=build /build/apps/api/_build/prod/rel/* /app/
+# tiny entrypoint that runs migrations then starts server
+COPY infra/docker/entrypoint.sh /app/bin/entrypoint.sh
+RUN chmod +x /app/bin/entrypoint.sh
+EXPOSE 4000
+CMD ["/app/bin/entrypoint.sh"]

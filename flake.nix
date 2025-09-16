@@ -1,5 +1,6 @@
 {
   description = "Dev env for inventory suite";
+
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
@@ -13,20 +14,28 @@
       pkgs = import nixpkgs {inherit system;};
     in {
       devShells.default = pkgs.mkShell {
-        # toolchain
+        # Toolchain & services
         buildInputs = [
-          pkgs.elixir_1_18
-          pkgs.erlang_27
-          pkgs.nodejs_20
-          pkgs.pnpm
-          pkgs.redis
-          pkgs.just # better than make for scripts
-          pkgs.openssl
+          pkgs.go_1_24 # Go toolchain
+          pkgs.delve # Debugger (dlv)
+          pkgs.go-tools # go vet, godoc, etc.
+          pkgs.gotestsum # Pretty test runner output
+
+          pkgs.sqlc # Type-safe DB access codegen
+          pkgs.goose # DB migrations
+
+          pkgs.just # Task runner
+
+          pkgs.docker # Optional: local containers
+          pkgs.docker-compose
         ];
+
         shellHook = ''
-          export MIX_ENV=dev
-          export PHX_SERVER=true
-          export PATH=$PATH:./node_modules/.bin
+          export GO111MODULE=on
+          export CGO_ENABLED=1
+
+          # Add ./bin (if you generate helpers) to PATH
+          export PATH="$PWD/modules/api/bin:$PATH"
         '';
       };
     });
