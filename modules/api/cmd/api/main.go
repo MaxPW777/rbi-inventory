@@ -13,7 +13,7 @@ func main() {
 		port = "8080"
 	}
 
-	r := gin.New()
+	r := gin.Default()
 	http.BuildRouter(r)
 
 	log.Printf("listening on port: %s", port)

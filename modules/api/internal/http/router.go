@@ -2,15 +2,12 @@ package http
 
 import (
 	"net/http"
-	"rbi/api/internal/http/middleware"
 	"rbi/api/internal/users"
 
 	"github.com/gin-gonic/gin"
 )
 
 func BuildRouter(r *gin.Engine) {
-	r.Use(gin.Recovery(), middleware.Logger())
-
 	r.GET("/health-check", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"status": "ok"})
 	})
