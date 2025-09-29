@@ -7,9 +7,9 @@ import (
 )
 
 func handleGetUsers(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, gin.H{"scooby": "doo"})
+	c.JSON(http.StatusOK, gin.H{"scooby": "doo"})
 }
 
 func BuildRoutes(rg *gin.RouterGroup) {
-	rg.GET("/users", handleGetUsers)
+	rg.GET("", handleGetUsers)
 }
