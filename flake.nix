@@ -25,6 +25,7 @@
           pkgs.goose # DB migrations
 
           pkgs.just # Task runner
+          pkgs.pnpm_10 # Better npm
 
           pkgs.docker # Optional: local containers
           pkgs.docker-compose
