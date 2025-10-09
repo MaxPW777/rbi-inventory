@@ -1,9 +1,7 @@
+import { sampleItems } from '@/data/routes/item'
+import type { FolderNode } from '@/data/types/folder-node'
 import { createFileRoute } from '@tanstack/react-router'
-import * as React from 'react'
-import FolderSidebar, { type FolderNode } from '../components/FolderSidebar'
-import { Button } from '../components/ui/button'
-import { Input } from '../components/ui/input'
-import { Select } from '../components/ui/select'
+import clsx from 'clsx'
 import {
   ChevronRight,
   FolderPlus,
@@ -12,98 +10,25 @@ import {
   Plus,
   Search,
 } from 'lucide-react'
-import clsx from 'clsx'
+import * as React from 'react'
+import FolderSidebar from '../components/FolderSidebar'
+import { Button } from '../components/ui/button'
+import { Input } from '../components/ui/input'
+import { Select } from '../components/ui/select'
+import { sampleFolders } from '@/data/routes/folders'
+import { ItemCard } from './ItemCard'
 
 export const Route = createFileRoute('/items')({
   component: ItemsPage,
 })
 
-// Sample folder data - replace with your actual data fetching logic
-const sampleFolders: FolderNode[] = [
-  {
-    id: '1',
-    name: 'Electronics',
-    children: [
-      {
-        id: '1-1',
-        name: 'Laptops',
-        children: [
-          { id: '1-1-1', name: 'Gaming' },
-          { id: '1-1-2', name: 'Business' },
-        ],
-      },
-      {
-        id: '1-2',
-        name: 'Phones',
-      },
-    ],
-  },
-  {
-    id: '2',
-    name: 'Furniture',
-    children: [
-      { id: '2-1', name: 'Office' },
-      { id: '2-2', name: 'Home' },
-    ],
-  },
-  {
-    id: '3',
-    name: 'Supplies',
-  },
-]
-
-// Sample items data
-interface Item {
-  id: string
-  name: string
-  image?: string
-  quantity: number
-  value: number
-  folderId?: string
-}
-
-const sampleItems: Item[] = [
-  {
-    id: 'item-1',
-    name: 'MacBook Pro 16"',
-    image: 'https://via.placeholder.com/150',
-    quantity: 5,
-    value: 2499.99,
-    folderId: '1-1-1',
-  },
-  {
-    id: 'item-2',
-    name: 'Dell XPS 15',
-    image: 'https://via.placeholder.com/150',
-    quantity: 3,
-    value: 1899.99,
-    folderId: '1-1-2',
-  },
-  {
-    id: 'item-3',
-    name: 'iPhone 15 Pro',
-    image: 'https://via.placeholder.com/150',
-    quantity: 10,
-    value: 999.99,
-    folderId: '1-2',
-  },
-  {
-    id: 'item-4',
-    name: 'Office Desk',
-    image: 'https://via.placeholder.com/150',
-    quantity: 8,
-    value: 349.99,
-    folderId: '2-1',
-  },
-]
-
-type DisplayType = 'grid' | 'list'
+export type DisplayType = 'grid' | 'list'
 
 function findFolderPath(
-  folders: FolderNode[],
+  folders: Array<FolderNode>,
   targetId: string,
-  currentPath: FolderNode[] = []
-): FolderNode[] | null {
+  currentPath: Array<FolderNode> = [],
+): Array<FolderNode> | null {
   for (const folder of folders) {
     const newPath = [...currentPath, folder]
     if (folder.id === targetId) {
@@ -132,7 +57,7 @@ function ItemsPage() {
   const filteredItems = sampleItems.filter(
     (item) =>
       (!selectedFolderId || item.folderId === selectedFolderId) &&
-      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
   const sortedItems = [...filteredItems].sort((a, b) => {
@@ -221,7 +146,7 @@ function ItemsPage() {
                 onClick={() => setDisplayType('grid')}
                 className={clsx(
                   'p-2 hover:bg-gray-100',
-                  displayType === 'grid' && 'bg-gray-100'
+                  displayType === 'grid' && 'bg-gray-100',
                 )}
               >
                 <Grid className="h-4 w-4" />
@@ -230,7 +155,7 @@ function ItemsPage() {
                 onClick={() => setDisplayType('list')}
                 className={clsx(
                   'p-2 hover:bg-gray-100',
-                  displayType === 'list' && 'bg-gray-100'
+                  displayType === 'list' && 'bg-gray-100',
                 )}
               >
                 <List className="h-4 w-4" />
@@ -246,15 +171,11 @@ function ItemsPage() {
               className={clsx(
                 displayType === 'grid'
                   ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'
-                  : 'flex flex-col gap-3'
+                  : 'flex flex-col gap-3',
               )}
             >
               {sortedItems.map((item) => (
-                <ItemCard
-                  key={item.id}
-                  item={item}
-                  displayType={displayType}
-                />
+                <ItemCard key={item.id} item={item} displayType={displayType} />
               ))}
             </div>
           ) : (
@@ -270,71 +191,7 @@ function ItemsPage() {
   )
 }
 
-function ItemCard({
-  item,
-  displayType,
-}: {
-  item: Item
-  displayType: DisplayType
-}) {
-  if (displayType === 'list') {
-    return (
-      <div className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow flex items-center gap-4">
-        <div className="w-16 h-16 flex-shrink-0 bg-gray-100 rounded-md overflow-hidden">
-          {item.image ? (
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-400">
-              <Package className="h-8 w-8" />
-            </div>
-          )}
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-medium text-gray-900 truncate">{item.name}</h3>
-          <div className="flex items-center gap-4 mt-1 text-sm text-gray-600">
-            <span>Qty: {item.quantity}</span>
-            <span>Total: ${(item.value * item.quantity).toLocaleString()}</span>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-      <div className="aspect-square bg-gray-100 overflow-hidden">
-        {item.image ? (
-          <img
-            src={item.image}
-            alt={item.name}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-gray-400">
-            <Package className="h-16 w-16" />
-          </div>
-        )}
-      </div>
-      <div className="p-4">
-        <h3 className="font-medium text-gray-900 truncate mb-2">
-          {item.name}
-        </h3>
-        <div className="text-sm text-gray-600 space-y-1">
-          <p>Quantity: {item.quantity}</p>
-          <p className="font-medium text-gray-900">
-            Total: ${(item.value * item.quantity).toLocaleString()}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function Package({ className }: { className?: string }) {
+export function Package({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

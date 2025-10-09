@@ -1,12 +1,7 @@
 import * as React from 'react'
 import { ChevronDown, ChevronRight, Folder, FolderOpen } from 'lucide-react'
 import clsx from 'clsx'
-
-interface FolderNode {
-  id: string
-  name: string
-  children?: FolderNode[]
-}
+import type { FolderNode } from '@/data/types/folder-node'
 
 interface FolderItemProps {
   folder: FolderNode
@@ -38,7 +33,7 @@ function FolderItem({
         onClick={handleClick}
         className={clsx(
           'w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 transition-colors',
-          isSelected && 'bg-gray-100 font-medium'
+          isSelected && 'bg-gray-100 font-medium',
         )}
         style={{ paddingLeft: `${12 + level * 16}px` }}
       >
