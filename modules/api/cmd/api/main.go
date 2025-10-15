@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/maximilianpw/rbi-inventory/internal/http"
 	"log"
 	"os"
-	"rbi/api/internal/http"
 )
 
 func main() {

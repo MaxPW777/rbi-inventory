@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"rbi/api/internal/models"
+	"github.com/maximilianpw/rbi-inventory/internal/models"
 )
 
 type Repository interface {

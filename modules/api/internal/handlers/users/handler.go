@@ -3,7 +3,7 @@ package users
 import (
 	"net/http"
 
-	"rbi/api/internal/repository/users"
+	"github.com/maximilianpw/rbi-inventory/internal/repository/users"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"

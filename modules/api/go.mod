@@ -1,4 +1,4 @@
-module rbi/api
+module github.com/maximilianpw/rbi-inventory
 
 go 1.24.6
 

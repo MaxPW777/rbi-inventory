@@ -3,7 +3,7 @@ package http
 import (
 	"net/http"
 
-	"rbi/api/internal/handlers/users"
+	"github.com/maximilianpw/rbi-inventory/internal/handlers/users"
 
 	"github.com/gin-gonic/gin"
 )
