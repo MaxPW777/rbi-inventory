@@ -2,7 +2,8 @@ package http
 
 import (
 	"net/http"
-	"rbi/api/internal/users"
+
+	"rbi/api/internal/handlers/users"
 
 	"github.com/gin-gonic/gin"
 )
