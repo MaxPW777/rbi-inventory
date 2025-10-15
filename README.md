@@ -1,190 +1,159 @@
-# Riviera Beauty Interiors inventory app
+# Riviera Beauty Interiors - Yacht Provisioning Management System
 
-This is an internal inventory management system for **Riviera Beauty
-Interiors**.  
-It helps track stock, organize items into folders, record supplier
-details, and monitor shortages or usage over time.
+This is an internal management system for **Riviera Beauty Interiors**, a specialized provisioning company serving the luxury yacht industry.
 
-The app provides:
+## Business Context
 
-- **Folders** to group items (for example, product categories or brands).
-- **Items** with detailed properties: quantity, weight, volume, expiry
-  dates, prices, minimum stock levels, and notes.
-- **Suppliers** linked to items, so you know who to call when stock
-  runs low.
-- **Usages** to record stock changes (for example, when items are used or
-  sold).
-- **Photos** to visually document items.
-- **Audit logs** to track user actions in the system.
-- **Statistics** on:
-  - Items running low (quantity below minimum level).
-  - Items expiring soon.
-  - Shortages over time.
+Riviera Beauty Interiors manages orders for yacht owners, handling everything from luxury linens and cosmetics to personalized amenities. The company acts as a single point of contact, consolidating orders from multiple suppliers into unified deliveries for yacht owners.
 
----
+## Project Vision
 
-## Getting started
+This application is being developed as part of a Master's program to modernize and streamline the entire business workflow. The system will evolve in phases:
 
-### Ruby version
+### Phase 1: Inventory Management (In Development)
 
-- Ruby **3.4.x** (managed with a Nix flake; see below).
+A comprehensive internal inventory management system that helps track stock, organize items, monitor supplier details, and prevent shortages.
 
-### System dependencies
+### Phase 2: Task Management (Planned)
 
-- [Nix](https://nixos.org/) (with flakes enabled)
-- PostgreSQL 15 (auto-configured by the dev shell)
-- Node.js 20 and Yarn (for JavaScript/CSS assets)
-- Bundler (`gem install bundler`) if not already available
+A customized, user-friendly task management system (mini-Jira) tailored specifically for the team's workflow. Unlike generic project management tools, this will be:
 
-### Development environment
+- Designed with non-technical users in mind
+- Integrated directly with inventory data
+- Focused on order fulfillment workflows
+- Connected to active orders and delivery schedules
 
-This project includes a **Nix flake** (`flake.nix`) that provides a full
-development shell with:
+### Phase 3: Client Portal (Future)
 
-- Ruby 3.4
-- PostgreSQL (local instance at `localhost:5432`)
-- Native dependencies for Rails gems (libxml2, libxslt, OpenSSL, etc.)
+A dedicated portal for yacht owners to:
 
-To enter the environment:
-
-```bash
-direnv allow   # if you use direnv
-# or
-nix develop
-```
+- Track delivery status in real-time
+- View order history
+- Place quick reorders of previously purchased items
+- Streamline communication between clients and the provisioning team
 
 ---
 
-## Configuration
+## Planned Features (Phase 1)
 
-Environment variables:
+The inventory management system will provide:
 
-- `DATABASE_URL` is set automatically by the dev shell to  
-  `postgres://postgres:postgres@localhost:5432/rbi_inventory`.
-
-Bundler is configured to install gems into a local `.gems/` directory.
-
----
-
-## Database setup
-
-Create and migrate the database:
-
-```bash
-bin/rails db:create
-bin/rails db:migrate
-bin/rails db:seed   # optional, add seed data here
-```
-
-Check schema consistency:
-
-```bash
-bin/rails db:schema:load
-```
+- **Folders** to group items by product categories, brands, or suppliers
+- **Items** with comprehensive tracking:
+  - Quantity, weight, volume
+  - Expiry dates and shelf life
+  - Supplier pricing and order details
+  - Minimum stock levels with automated alerts
+  - Custom notes and specifications
+- **Suppliers** database with full contact information for quick reordering
+- **Usages** tracking to record stock changes (sales, usage, returns)
+- **Photos** for visual documentation and identification
+- **Audit logs** for accountability and change tracking
+- **Statistics and Alerts**:
+  - Low stock notifications (items below minimum threshold)
+  - Upcoming expiry warnings
+  - Usage trends and shortage history
+  - Most frequently ordered items
 
 ---
 
-## Running the app
+## Tech Stack
 
-Start the Rails server:
+### Frontend
 
-```bash
-bin/rails server
-# → http://localhost:3000
-```
+- **TanStack Start** with **React** for the user interface
+- Modern, responsive design for both desktop and mobile use
 
-Routes:
+### Backend
 
-- `GET /` homepage with search field .
-- `GET /items/:id` show details of one item .
-- `GET /api/v1/items` list items .
-- `GET /api/v1/items/:id` show one item .
-- `POST /api/v1/items/:id/usages` record a usage or shortage .
-- `GET /api/v1/folders`, `GET /api/v1/folders/:id` folders .
-- `GET /api/v1/suppliers`, `GET /api/v1/suppliers/:id` suppliers .
+- **Go** with **Gin** framework for API server
+- **PostgreSQL** database for data persistence
 
 ---
 
-## Usage concepts
+## Getting Started
 
-- **Folders** organize items.
-- **Items** belong to one folder and one supplier.
-- **Suppliers** provide contact info so staff can quickly reorder
-  items.
-- **Minimum level (`min_level`)**: when stock (`quantity`) drops below
-  this threshold, the item is flagged as low stock.
-- **Usages**: record each stock change, whether positive or negative.
-- **Audit logs**: record user actions for accountability.
-- **Statistics**:
-  - Items below minimum stock.
-  - Items expiring soon.
-  - Usage trends.
+### Prerequisites
+
+- Go 1.21+ for backend development
+- Node.js 20+ and pnpm/npm for frontend development
+- PostgreSQL 15+ for database
+
+### Development Setup
+
+_(Development instructions will be added as the project structure is finalized)_
 
 ---
 
-## Running tests
+## Core Concepts
 
-To run the test suite:
+### Inventory Management
 
-```bash
-bin/rails test
-```
+- **Folders**: Organize items by categories (e.g., "Bathroom Amenities", "Linens", "Cosmetics")
+- **Items**: Individual products with full tracking capabilities
+- **Suppliers**: Contact database for procurement
+- **Minimum Level**: Automated low-stock alerts when quantity drops below threshold
+- **Usages**: Historical record of all stock movements
+- **Audit Logs**: Complete accountability trail for all system changes
 
----
+### Business Workflow
 
-## Services
+1. Yacht owner places order
+2. Staff checks inventory availability
+3. Items below minimum level trigger supplier reorder
+4. Usage records track fulfillment
+5. Statistics inform purchasing decisions
 
-- **PostgreSQL**: database (local instance started by the dev
-  shell).
-- **Rails Active Job**: background jobs (can use async in development).
-- **Action Mailer**: email delivery (configure Simple Mail Transfer Protocol, or SMTP, in production if needed).
+### Planned Features (Phase 2 & 3)
 
----
-
-## Deployment instructions
-
-1.  Provision a PostgreSQL database.
-2.  Set environment variables:
-    - `DATABASE_URL=postgres://...`
-    - `RAILS_MASTER_KEY` (for encrypted credentials if used).
-3.  Install system dependencies (Ruby, Node.js, Yarn, PostgreSQL client
-    libraries).
-4.  Run:
-
-    ```bash
-    bundle install
-    yarn install --check-files
-    bin/rails db:migrate
-    bin/rails assets:precompile
-    ```
-
-5.  Start the app:
-
-    ```bash
-    bin/rails server -e production
-    ```
+- Order management integrated with task tracking
+- Delivery scheduling and status updates
+- Client portal for order tracking and reordering
+- Automated notification system for clients
+- Enhanced reporting for business analytics
 
 ---
 
-## Monitoring
+## Development Roadmap
 
-- `GET /up` — returns `200 OK` if the app booted successfully (for
-  uptime checks).
-- `GET /service-worker` and `GET /manifest`: Progressive Web App (PWA) endpoints.
+### 🔄 Phase 1: Inventory Management (In Development)
+
+- Core inventory tracking
+- Supplier management
+- Low stock alerts
+- Usage history
+- Basic statistics
+
+### 📋 Phase 2: Task Management (Planned)
+
+- Custom task board (simplified Jira alternative)
+- Order-to-task linking
+- Team collaboration features
+- Delivery scheduling
+- Integrated with inventory system
+
+### 🚀 Phase 3: Client Portal (Future)
+
+- Client authentication and profiles
+- Real-time delivery tracking
+- Order history viewing
+- Quick reorder functionality
+- Client-staff messaging
 
 ---
 
-## Contributing
+## Project Context
 
-1.  Fork and branch from `main`.
-2.  Follow Rails conventions (controllers under `app/controllers`,
-    models under `app/models`).
-3.  Write tests for new features.
-4.  Submit a pull request.
+This application is being developed as a Master's degree project, designed to modernize operations for a real business with specific needs:
+
+- Non-technical user base requiring intuitive interfaces
+- Yacht industry specifics (luxury goods, time-sensitive deliveries)
+- Multi-stakeholder system (internal staff + external clients)
+- Scalability for future business growth
 
 ---
 
 ## License
 
-This app is proprietary to **Riviera Beauty Interiors**.  
+This application is proprietary to **Riviera Beauty Interiors**.  
 Unauthorized copying or distribution is prohibited.

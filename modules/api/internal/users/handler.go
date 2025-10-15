@@ -1,33 +1,29 @@
 package users
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"rbi/api/internal/repository"
+
+	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 )
-
-type User struct {
-	ID   string `json:"id"`
-	name string `json:"name"`
-}
-
-var users = []User{
-	{ID: "1", name: "max"},
-	{ID: "2", name: "lukas"},
-}
-
-func handleGetUsers(c *gin.Context) {
-	c.JSON(http.StatusOK, users)
-}
 
 func handleGetUser(c *gin.Context) {
 	id := c.Param("id")
-	for _, u := range users {
-		if u.ID == id {
-			c.JSON(http.StatusOK, u)
-			return
-		}
+	uuid, err := uuid.Parse(id)
+	if err != nil {
+		return
 	}
-	c.JSON(http.StatusNotFound, gin.H{"status": "not found"})
+
+	user := repository.HandleGetUser(uuid)
+	c.JSON(http.StatusFound, user)
+}
+
+func handleGetUsers(c *gin.Context) {
+	users := repository.HandleGetUsers()
+
+	c.JSON(http.StatusFound, users)
 }
 
 func BuildRoutes(rg *gin.RouterGroup) {
