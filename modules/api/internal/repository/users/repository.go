@@ -2,9 +2,9 @@ package users
 
 import (
 	"context"
-	"database/sql"
 
 	"github.com/google/uuid"
+	"github.com/jmoiron/sqlx"
 
 	"github.com/maximilianpw/rbi-inventory/internal/models"
 )
@@ -18,7 +18,7 @@ type UserRepository interface {
 }
 
 type userRepository struct {
-	db *sql.DB
+	db *sqlx.DB
 }
 
 var users = []models.User{
@@ -55,6 +55,6 @@ func (r *userRepository) Update(ctx context.Context, user *models.User) error {
 	panic("unimplemented")
 }
 
-func NewRepository(db *sql.DB) UserRepository {
+func NewRepository(db *sqlx.DB) UserRepository {
 	return &userRepository{db: db}
 }
