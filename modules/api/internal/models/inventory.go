@@ -30,40 +30,40 @@ const (
 )
 
 type Location struct {
-	ID            uuid.UUID    `json:"id" db:"id"`
-	Name          string       `json:"name" db:"name" binding:"required"`
-	Type          LocationType `json:"type" db:"type" binding:"required"`
-	Address       *string      `json:"address,omitempty" db:"address"`
-	ContactPerson *string      `json:"contact_person,omitempty" db:"contact_person"`
-	Phone         *string      `json:"phone,omitempty" db:"phone"`
-	IsActive      bool         `json:"is_active" db:"is_active"`
-	CreatedAt     time.Time    `json:"created_at" db:"created_at"`
-	UpdatedAt     time.Time    `json:"updated_at" db:"updated_at"`
+	ID            uuid.UUID    `db:"id"`
+	Name          string       `db:"name"`
+	Type          LocationType `db:"type"`
+	Address       *string      `db:"address"`
+	ContactPerson *string      `db:"contact_person"`
+	Phone         *string      `db:"phone"`
+	IsActive      bool         `db:"is_active"`
+	CreatedAt     time.Time    `db:"created_at"`
+	UpdatedAt     time.Time    `db:"updated_at"`
 }
 
 type Inventory struct {
-	ID           uuid.UUID  `json:"id" db:"id"`
-	ProductID    uuid.UUID  `json:"product_id" db:"product_id" binding:"required"`
-	LocationID   uuid.UUID  `json:"location_id" db:"location_id" binding:"required"`
-	Quantity     int        `json:"quantity" db:"quantity"`
-	BatchNumber  *string    `json:"batch_number,omitempty" db:"batch_number"`
-	ExpiryDate   *time.Time `json:"expiry_date,omitempty" db:"expiry_date"`
-	CostPerUnit  *float64   `json:"cost_per_unit,omitempty" db:"cost_per_unit"`
-	ReceivedDate *time.Time `json:"received_date,omitempty" db:"received_date"`
-	UpdatedAt    time.Time  `json:"updated_at" db:"updated_at"`
+	ID           uuid.UUID  `db:"id"`
+	ProductID    uuid.UUID  `db:"product_id"`
+	LocationID   uuid.UUID  `db:"location_id"`
+	Quantity     int        `db:"quantity"`
+	BatchNumber  *string    `db:"batch_number"`
+	ExpiryDate   *time.Time `db:"expiry_date"`
+	CostPerUnit  *float64   `db:"cost_per_unit"`
+	ReceivedDate *time.Time `db:"received_date"`
+	UpdatedAt    time.Time  `db:"updated_at"`
 }
 
 type StockMovement struct {
-	ID              uuid.UUID           `json:"id" db:"id"`
-	ProductID       uuid.UUID           `json:"product_id" db:"product_id" binding:"required"`
-	FromLocationID  *uuid.UUID          `json:"from_location_id,omitempty" db:"from_location_id"`
-	ToLocationID    *uuid.UUID          `json:"to_location_id,omitempty" db:"to_location_id"`
-	Quantity        int                 `json:"quantity" db:"quantity" binding:"required"`
-	Reason          StockMovementReason `json:"reason" db:"reason" binding:"required"`
-	OrderID         *uuid.UUID          `json:"order_id,omitempty" db:"order_id"`
-	ReferenceNumber *string             `json:"reference_number,omitempty" db:"reference_number"`
-	CostPerUnit     *float64            `json:"cost_per_unit,omitempty" db:"cost_per_unit"`
-	UserID          uuid.UUID           `json:"user_id" db:"user_id" binding:"required"`
-	Notes           *string             `json:"notes,omitempty" db:"notes"`
-	CreatedAt       time.Time           `json:"created_at" db:"created_at"`
+	ID              uuid.UUID           `db:"id"`
+	ProductID       uuid.UUID           `db:"product_id"`
+	FromLocationID  *uuid.UUID          `db:"from_location_id"`
+	ToLocationID    *uuid.UUID          `db:"to_location_id"`
+	Quantity        int                 `db:"quantity"`
+	Reason          StockMovementReason `db:"reason"`
+	OrderID         *uuid.UUID          `db:"order_id"`
+	ReferenceNumber *string             `db:"reference_number"`
+	CostPerUnit     *float64            `db:"cost_per_unit"`
+	UserID          uuid.UUID           `db:"user_id"`
+	Notes           *string             `db:"notes"`
+	CreatedAt       time.Time           `db:"created_at"`
 }

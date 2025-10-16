@@ -7,28 +7,28 @@ import (
 )
 
 type Supplier struct {
-	ID            uuid.UUID `json:"id" db:"id"`
-	Name          string    `json:"name" db:"name" binding:"required"`
-	ContactPerson *string   `json:"contact_person,omitempty" db:"contact_person"`
-	Email         *string   `json:"email,omitempty" db:"email"`
-	Phone         *string   `json:"phone,omitempty" db:"phone"`
-	Address       *string   `json:"address,omitempty" db:"address"`
-	Website       *string   `json:"website,omitempty" db:"website"`
-	Notes         *string   `json:"notes,omitempty" db:"notes"`
-	IsActive      bool      `json:"is_active" db:"is_active"`
-	CreatedAt     time.Time `json:"created_at" db:"created_at"`
-	UpdatedAt     time.Time `json:"updated_at" db:"updated_at"`
+	ID            uuid.UUID `db:"id"`
+	Name          string    `db:"name"`
+	ContactPerson *string   `db:"contact_person"`
+	Email         *string   `db:"email"`
+	Phone         *string   `db:"phone"`
+	Address       *string   `db:"address"`
+	Website       *string   `db:"website"`
+	Notes         *string   `db:"notes"`
+	IsActive      bool      `db:"is_active"`
+	CreatedAt     time.Time `db:"created_at"`
+	UpdatedAt     time.Time `db:"updated_at"`
 }
 
 type SupplierProduct struct {
-	ID                   uuid.UUID `json:"id" db:"id"`
-	SupplierID           uuid.UUID `json:"supplier_id" db:"supplier_id" binding:"required"`
-	ProductID            uuid.UUID `json:"product_id" db:"product_id" binding:"required"`
-	SupplierSKU          *string   `json:"supplier_sku,omitempty" db:"supplier_sku"`
-	CostPerUnit          *float64  `json:"cost_per_unit,omitempty" db:"cost_per_unit"`
-	LeadTimeDays         *int      `json:"lead_time_days,omitempty" db:"lead_time_days"`
-	MinimumOrderQuantity *int      `json:"minimum_order_quantity,omitempty" db:"minimum_order_quantity"`
-	IsPreferred          bool      `json:"is_preferred" db:"is_preferred"`
-	CreatedAt            time.Time `json:"created_at" db:"created_at"`
-	UpdatedAt            time.Time `json:"updated_at" db:"updated_at"`
+	ID                   uuid.UUID `db:"id"`
+	SupplierID           uuid.UUID `db:"supplier_id"`
+	ProductID            uuid.UUID `db:"product_id"`
+	SupplierSKU          *string   `db:"supplier_sku"`
+	CostPerUnit          *float64  `db:"cost_per_unit"`
+	LeadTimeDays         *int      `db:"lead_time_days"`
+	MinimumOrderQuantity *int      `db:"minimum_order_quantity"`
+	IsPreferred          bool      `db:"is_preferred"`
+	CreatedAt            time.Time `db:"created_at"`
+	UpdatedAt            time.Time `db:"updated_at"`
 }

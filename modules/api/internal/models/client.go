@@ -15,18 +15,18 @@ const (
 )
 
 type Client struct {
-	ID                     uuid.UUID    `json:"id" db:"id"`
-	CompanyName            string       `json:"company_name" db:"company_name" binding:"required"`
-	YachtName              *string      `json:"yacht_name,omitempty" db:"yacht_name"`
-	ContactPerson          string       `json:"contact_person" db:"contact_person" binding:"required"`
-	Email                  string       `json:"email" db:"email" binding:"required,email"`
-	Phone                  *string      `json:"phone,omitempty" db:"phone"`
-	BillingAddress         *string      `json:"billing_address,omitempty" db:"billing_address"`
-	DefaultDeliveryAddress *string      `json:"default_delivery_address,omitempty" db:"default_delivery_address"`
-	AccountStatus          ClientStatus `json:"account_status" db:"account_status"`
-	PaymentTerms           *string      `json:"payment_terms,omitempty" db:"payment_terms"`
-	CreditLimit            *float64     `json:"credit_limit,omitempty" db:"credit_limit"`
-	Notes                  *string      `json:"notes,omitempty" db:"notes"`
-	CreatedAt              time.Time    `json:"created_at" db:"created_at"`
-	UpdatedAt              time.Time    `json:"updated_at" db:"updated_at"`
+	ID                     uuid.UUID    `db:"id"`
+	CompanyName            string       `db:"company_name"`
+	YachtName              *string      `db:"yacht_name"`
+	ContactPerson          string       `db:"contact_person"`
+	Email                  string       `db:"email"`
+	Phone                  *string      `db:"phone"`
+	BillingAddress         *string      `db:"billing_address"`
+	DefaultDeliveryAddress *string      `db:"default_delivery_address"`
+	AccountStatus          ClientStatus `db:"account_status"`
+	PaymentTerms           *string      `db:"payment_terms"`
+	CreditLimit            *float64     `db:"credit_limit"`
+	Notes                  *string      `db:"notes"`
+	CreatedAt              time.Time    `db:"created_at"`
+	UpdatedAt              time.Time    `db:"updated_at"`
 }
