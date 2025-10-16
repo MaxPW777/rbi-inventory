@@ -9,7 +9,7 @@ import (
 	"github.com/maximilianpw/rbi-inventory/internal/models"
 )
 
-type Repository interface {
+type UserRepository interface {
 	Create(ctx context.Context, user *models.User) error
 	GetByID(ctx context.Context, id uuid.UUID) (*models.User, error)
 	List(ctx context.Context, filters []string) ([]*models.User, error)
@@ -17,7 +17,7 @@ type Repository interface {
 	Delete(ctx context.Context, id uuid.UUID) error
 }
 
-type repository struct {
+type userRepository struct {
 	db *sql.DB
 }
 
@@ -27,22 +27,22 @@ var users = []models.User{
 }
 
 // Create implements Repository.
-func (r *repository) Create(ctx context.Context, user *models.User) error {
+func (r *userRepository) Create(ctx context.Context, user *models.User) error {
 	panic("unimplemented")
 }
 
 // Delete implements Repository.
-func (r *repository) Delete(ctx context.Context, id uuid.UUID) error {
+func (r *userRepository) Delete(ctx context.Context, id uuid.UUID) error {
 	panic("unimplemented")
 }
 
 // GetByID implements Repository.
-func (r *repository) GetByID(ctx context.Context, id uuid.UUID) (*models.User, error) {
+func (r *userRepository) GetByID(ctx context.Context, id uuid.UUID) (*models.User, error) {
 	return &users[0], nil
 }
 
 // List implements Repository.
-func (r *repository) List(ctx context.Context, filters []string) ([]*models.User, error) {
+func (r *userRepository) List(ctx context.Context, filters []string) ([]*models.User, error) {
 	result := make([]*models.User, len(users))
 	for i := range users {
 		result[i] = &users[i]
@@ -51,10 +51,10 @@ func (r *repository) List(ctx context.Context, filters []string) ([]*models.User
 }
 
 // Update implements Repository.
-func (r *repository) Update(ctx context.Context, user *models.User) error {
+func (r *userRepository) Update(ctx context.Context, user *models.User) error {
 	panic("unimplemented")
 }
 
-func NewRepository(db *sql.DB) Repository {
-	return &repository{db: db}
+func NewRepository(db *sql.DB) UserRepository {
+	return &userRepository{db: db}
 }

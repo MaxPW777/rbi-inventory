@@ -53,5 +53,5 @@ type Photo struct {
 	URL        string     `json:"url" db:"url" binding:"required"`
 	Caption    *string    `json:"caption,omitempty" db:"caption"`
 	UploadedBy *uuid.UUID `json:"uploaded_by,omitempty" db:"uploaded_by"`
-	CreatedAttime.Time  `json:"created_at" db:"created_at"`
+	CreatedAt   time.Time  `json:"created_at" db:"created_at"`
 }
